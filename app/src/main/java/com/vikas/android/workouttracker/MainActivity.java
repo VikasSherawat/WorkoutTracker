@@ -2,12 +2,23 @@ package com.vikas.android.workouttracker;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.vikas.android.workouttracker.adapter.UserOptionsAdapter;
+import com.vikas.android.workouttracker.fragments.HomeFragment;
+import com.vikas.android.workouttracker.fragments.WorkoutListFragment;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,28 +31,24 @@ import android.widget.Toast;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private List<String> userOptions = Arrays.asList("AllWorkout", "MyWorkout", "Diet Log", "Weight Log");
-
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RecyclerView recyclerView = findViewById(R.id.mainUserOptions);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
-        recyclerView.setAdapter(new UserOptionsAdapter(this.userOptions, this));
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Workout Tracker");
         setSupportActionBar(toolbar);
+        NavHostFragment host = (NavHostFragment) getSupportFragmentManager().
+                findFragmentById(R.id.nav_host_fragment);
+        NavController navController = host.getNavController();
+        setupBottomNavMenu(navController);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+    }
+
+    private void setupBottomNavMenu(NavController navController) {
+        BottomNavigationView navigationView = findViewById(R.id.bottom_nav_view);
+        NavigationUI.setupWithNavController(navigationView,navController);
     }
 
     @Override
@@ -64,12 +71,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View view) {
-        int position = (int) view.getTag();
-        Toast.makeText(this, "Item Clicked " + this.userOptions.get(position),
-                Toast.LENGTH_SHORT).show();
     }
 }
