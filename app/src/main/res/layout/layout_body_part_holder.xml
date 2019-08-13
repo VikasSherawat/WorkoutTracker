@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/eight_dp"
+    app:cardCornerRadius="@dimen/eight_dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bodyPartImage"
+            android:adjustViewBounds="true"/>
+
+        <TextView
+            android:id="@+id/bodyPartTitle"
+            style="@style/BodyPartTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/bodyPartImage"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:padding="@dimen/eight_dp"
+            android:text="bodyPart Title"/>
+        <TextView
+            android:id="@+id/bodyPartLastPerformedDate"
+            style="@style/TextAppearance.AppCompat.Subhead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/bodyPartTitle"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:padding="@dimen/eight_dp"
+            android:text="Last Performed on Date"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
