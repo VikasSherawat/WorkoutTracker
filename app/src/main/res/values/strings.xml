@@ -20,9 +20,9 @@
         <item>Obliques</item>
     </string-array>
     <string-array name="body_parts_image">
-        <item>@drawable/quads</item>
-        <item>@drawable/quads</item>
-        <item>@drawable/quads</item>
+        <item>@drawable/shoulder</item>
+        <item>@drawable/chest</item>
+        <item>@drawable/back</item>
         <item>@drawable/quads</item>
         <item>@drawable/quads</item>
         <item>@drawable/quads</item>

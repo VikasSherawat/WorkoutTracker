@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    android:id="@+id/bodyPartCardView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="@dimen/eight_dp"
+    android:clickable="true"
+    android:scaleType="centerCrop"
+    android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="@dimen/eight_dp">
 
     <RelativeLayout
@@ -13,6 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bodyPartImage"
+            app:layout_constraintDimensionRatio="H,16:9"
+            app:layout_constraintVertical_chainStyle="spread_inside"
             android:adjustViewBounds="true"/>
 
         <TextView
@@ -26,7 +33,6 @@
             android:text="bodyPart Title"/>
         <TextView
             android:id="@+id/bodyPartLastPerformedDate"
-            style="@style/TextAppearance.AppCompat.Subhead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/bodyPartTitle"

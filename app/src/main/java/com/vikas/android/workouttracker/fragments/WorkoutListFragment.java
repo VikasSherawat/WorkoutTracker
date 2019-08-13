@@ -44,7 +44,8 @@ public class WorkoutListFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(getContext(),"Clicked",Toast.LENGTH_SHORT).show();
+        int position = (int)view.getTag();
+        Toast.makeText(getContext(),"Clicked on"+mBodyParts.get(position).getName(),Toast.LENGTH_SHORT).show();
     }
 
     private void initializeBodyPartsData() {

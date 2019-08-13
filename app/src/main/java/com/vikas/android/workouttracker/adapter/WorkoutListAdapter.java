@@ -38,7 +38,7 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListViewHold
 
     @Override
     public void onBindViewHolder(@NonNull WorkoutListViewHolder holder, int position) {
-            holder.bindData(this.mBodyParts.get(position),mContext);
+            holder.bindData(this.mBodyParts.get(position),mContext,position);
     }
 
     @Override
