@@ -9,17 +9,33 @@
         android:name="com.vikas.android.workouttracker.fragments.HomeFragment"
         android:label="fragment_workout_list"
         tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_HomeFragment_to_workoutListFragment"
+            app:destination="@id/workoutListFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_myWorkoutFragment"
+            app:destination="@id/myWorkoutFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/workoutListFragment"
         android:name="com.vikas.android.workouttracker.fragments.WorkoutListFragment"
         android:label="fragment_workout_list"
-        tools:layout="@layout/fragment_workout_list"/>
+        tools:layout="@layout/fragment_workout_list">
+        <action
+            android:id="@+id/action_workoutListFragment_to_bodyPartExercisesFragment"
+            app:destination="@id/bodyPartExercisesFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/myWorkoutFragment"
         android:name="com.vikas.android.workouttracker.fragments.MyWorkoutFragment"
         android:label="fragment_my_workout"
+        tools:layout="@layout/fragment_my_workout" />
+
+    <fragment
+        android:id="@+id/bodyPartExercisesFragment"
+        android:name="com.vikas.android.workouttracker.fragments.BodyPartExercisesFragment"
+        android:label="fragment_body_part_exercises_fragment"
         tools:layout="@layout/fragment_my_workout" />
 </navigation>

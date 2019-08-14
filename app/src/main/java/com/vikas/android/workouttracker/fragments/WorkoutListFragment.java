@@ -2,7 +2,6 @@ package com.vikas.android.workouttracker.fragments;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorkoutListFragment extends Fragment implements View.OnClickListener {
-    List<BodyPart> mBodyParts = new ArrayList<>();
+    private static final String BODYPART = "bodypart";
+    private List<BodyPart> mBodyParts = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,10 @@ public class WorkoutListFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View view) {
         int position = (int)view.getTag();
-        Toast.makeText(getContext(),"Clicked on"+mBodyParts.get(position).getName(),Toast.LENGTH_SHORT).show();
+        Bundle bundle = new Bundle();
+        bundle.putString(BODYPART,this.mBodyParts.get(position).getName());
+        NavController navController = Navigation.findNavController(view);
+        navController.navigate(R.id.bodyPartExercisesFragment,bundle);
     }
 
     private void initializeBodyPartsData() {

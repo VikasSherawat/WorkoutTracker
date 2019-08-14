@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/eight_dp"
+    android:clickable="true"
+    android:focusable="auto"
+    android:scaleType="centerCrop"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="@dimen/eight_dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/media_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintDimensionRatio="H,1:1"
+            app:layout_constraintVertical_chainStyle="spread_inside"/>
+
+        <TextView
+            android:id="@+id/primary_text"
+            style="@style/BodyPartTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/media_image"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            android:padding="@dimen/eight_dp"
+            android:text="bodyPart Title"/>
+
+        <TextView
+            android:id="@+id/sub_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/media_image"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            android:padding="@dimen/eight_dp"
+            android:text="bodyPart Title" />
+
+        <Button
+            android:id="@+id/action_button_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD TO WORKOUT"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_below="@id/sub_text"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

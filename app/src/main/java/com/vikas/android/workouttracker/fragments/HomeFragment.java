@@ -46,7 +46,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         int position = (int) view.getTag();
-        Toast.makeText(getContext(), "Item Clicked " + this.userOptions.get(position), Toast.LENGTH_SHORT).show();
         NavController navController = Navigation.findNavController(view);
         switch (position) {
             case 0:
